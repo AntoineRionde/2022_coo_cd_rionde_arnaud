@@ -1,0 +1,12 @@
+Tout d'abord, pour charger des fichiers à partir d'un magasin, 
+il faut créer un objet ChargeurMagasin avec le constructeur ChargeurMagasin(rep).
+Ensuite on appelle la méthode chargerMagasin() sur l'objet ChargeurMagasin.
+Puis, on instancie un objet Magasin() pour la classe ChargeurMagasin.
+On instancie un objet ChargeurCD avec le constructeur ChargeurCD(fichier) et
+on appelle la méthode chargerCD sur l'objet chargeur (de type ChargeurMagasin).
+Après, on crée un objet cd1 de type CD avec le constructeur CD (artiste, nomCd).
+On appelle ensuite sur l'objet chargeCd1 (de type ChargeurCD), la méthode extrairePiste(),
+ajouterPiste, puis de nouveau extrairePiste et enfin ajouterPiste.
+
+Pour finir, une fois que la méthode chargerCD est terminée, on appelle la méthode
+ajouteCd avec cd1 comme paramètre.
