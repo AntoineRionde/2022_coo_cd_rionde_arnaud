@@ -1,5 +1,6 @@
 package donnees;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 /**
@@ -68,6 +69,34 @@ public class Magasin {
 		return(res);
 	}
 
-	// TODO  ajouter une methode de tri
+	public void trierAlbum() {
+		ArrayList<CD> listeCDsTrie = new ArrayList<CD>();
+		for (int i = 0; i < this.listeCds.size(); i++) {
+			CD cdMin = this.listeCds.get(i);
+			for (int j = i + 1; j < this.listeCds.size(); j++) {
+				CD cd = this.listeCds.get(j);
+				if (cd.getNomCD().compareTo(cdMin.getNomCD()) < 0)
+					cdMin = cd;
+			}
+			listeCDsTrie.add(cdMin);
+		}
+		this.listeCds = listeCDsTrie;
+	}
+
+	public void trierArtiste() {
+		ArrayList<CD> listeCDsTrie = new ArrayList();
+		for (int i = 0; i < this.listeCds.size(); i++) {
+			CD cdMin = this.listeCds.get(i);
+			for (int j = i + 1; j < this.listeCds.size(); j++) {
+				CD cd = this.listeCds.get(j);
+				if (cd.getNomArtiste().compareTo(cdMin.getNomArtiste()) < 0)
+					cdMin = cd;
+			}
+			listeCDsTrie.add(cdMin);
+		}
+		System.out.println(listeCDsTrie);
+		System.out.println("Allo mec, c'est bon ça marche !");
+		this.listeCds = listeCDsTrie;
+	}
 
 }

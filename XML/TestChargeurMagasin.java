@@ -17,16 +17,16 @@ public class TestChargeurMagasin {
 
     @Test
     public void testChargeurMagasin_NonValide() {
+        boolean exception = false;
         try
         {
             ChargeurMagasin chargeur = new ChargeurMagasin("musicbrainzzzzSimple/");
             Magasin m  = chargeur.chargerMagasin();
-            Assert.assertEquals(12, m.getNombreCds());
         }
         catch (FileNotFoundException e)
         {
-            e.printStackTrace();
+            exception = true;
         }
-
+        Assert.assertTrue(exception);
     }
 }

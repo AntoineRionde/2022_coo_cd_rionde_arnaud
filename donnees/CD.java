@@ -1,6 +1,8 @@
 package donnees;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -97,5 +99,16 @@ public class CD {
 		return (resultat);
 	}
 
-	// TODO 
+	//getters
+	public String getNomArtiste() {
+		return nomArtiste;
+	}
+
+	public String getNomCD() {
+		return nomCD;
+	}
+
+	public List<InfoPiste> getPistes() {
+		return pistes;
+	}
 }
