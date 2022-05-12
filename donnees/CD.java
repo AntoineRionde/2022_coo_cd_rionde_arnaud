@@ -111,4 +111,5 @@ public class CD {
 	public List<InfoPiste> getPistes() {
 		return pistes;
 	}
+
 }
