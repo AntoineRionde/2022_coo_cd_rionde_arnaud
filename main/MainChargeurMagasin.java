@@ -11,31 +11,25 @@ import XML.ChargeurMagasin;
  */
 public class MainChargeurMagasin {
 
-	/**
-	 * methode principale
-	 * 
-	 * @param args
-	 *            inutilise
-	 * @throws IOException
-	 *             en cas de probleme de lecture entree/sortie
-	 */
-	public static void main(String args[]) throws IOException {
-		
-		String repertoire = "musicbrainzSimple";
-		ChargeurMagasin charge = new ChargeurMagasin(repertoire);
-		Magasin resultat = charge.chargerMagasin();
-		System.out.println(resultat);
+    /**
+     * methode principale
+     *
+     * @param args inutilise
+     * @throws IOException en cas de probleme de lecture entree/sortie
+     */
+    public static void main(String args[]) throws IOException {
 
-		Scanner sc = new Scanner(System.in);
-		sc.nextLine();
-		sc.close();
+        String repertoire = "musicbrainzSimple";
+        ChargeurMagasin charge = new ChargeurMagasin(repertoire);
+        Magasin resultat = charge.chargerMagasin();
+        System.out.println(resultat);
+        System.out.println("----------RESULTAT-----------\n\n\n");
+        resultat.trierAlbum();
+        System.out.println(resultat);
+        System.out.println("----------RESULTAT-----------\n\n\n");
+        resultat.trierArtiste();
+        System.out.println(resultat);
 
-		resultat.trierAlbum();
-		System.out.println(resultat);
-
-		//resultat.trierArtiste();
-		//System.out.println(resultat);
-
-	}
+    }
 
 }
