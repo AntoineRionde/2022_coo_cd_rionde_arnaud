@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * cette classe est caracterisee par un ensemble de CDs correspondant aux CDS
  * vendus dans ce magasin.
  */
-public class Magasin {
+public class Magasin{
 
     /**
      * la liste des CDs disponibles en magasin
@@ -64,8 +64,7 @@ public class Magasin {
             res = this.listeCds.get(i);
         return (res);
     }
-    /*Le problème avec cette méthode de tri est qu'elle ne fonctionne qu'avec des Strings il faudrait changer la
-    4ème ligne de la méthode pour qu'elle fonctionne avec des int**/
+
     /**
      * trie les Cds du magasin par ordre alphabétique en fonction du titre
      */
@@ -96,4 +95,15 @@ public class Magasin {
         }
     }
 
+    public void trier(ComparateurCd comparateur) {
+        for (int i = 0; i < this.listeCds.size()-1; i++) {
+            for (int j = i + 1; j > 0; j--) {
+                if (comparateur.etreAvant(this.listeCds.get(j), this.listeCds.get(j-1))) {
+                    CD cd = this.listeCds.get(j);
+                    this.listeCds.set(j, this.listeCds.get(j-1));
+                    this.listeCds.set(j-1, cd);
+                }
+            }
+        }
+    }
 }
