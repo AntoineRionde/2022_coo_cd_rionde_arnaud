@@ -36,3 +36,7 @@ la condition `if`.
 En changeant le type de tri celà modifierai toute la stucture du
 code ce qui signifierait que rien ne serait à conserver
 expecté la ligne où on instancie une variable temporaire.
+
+#### Question 16
+La portion de code qui doit etre changé est la ligne de la condition
+`if (a.equals(b))`.
