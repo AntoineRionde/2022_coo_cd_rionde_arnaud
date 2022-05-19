@@ -17,26 +17,24 @@ public class TestTri {
     private Magasin resultat;
 
     @Test
-    public void TestTriAlbum() throws FileNotFoundException, IOException {
+    public void TestTriAlbum() throws FileNotFoundException {
         resultat = charge.chargerMagasin();
-
-        resultat.trierAlbum();
-
-        Assert.assertEquals("Believe",resultat.getCd(0).getNomCD());
-        Assert.assertEquals("Whitney Houston",resultat.getCd(resultat.getNombreCds()-1).getNomCD());
-
+        resultat.trier(new ComparateurAlbum());
+        Assert.assertEquals(resultat.getCd(0).getNomCD(), "Believe");
+        Assert.assertEquals(resultat.getCd(resultat.getNombreCds()-1).getNomCD(), "Whitney Houston");
     }
 
     @Test
-    public void TestTriArtiste() throws FileNotFoundException, IOException {
+    public void testTriArtiste() throws IOException {
         resultat = charge.chargerMagasin();
-        CD cd = new ChargeurCD("musicbrainzSimple/Benabar_Benabar.xml").chargerCD();
+        ChargeurCD chargeurCd = new ChargeurCD("musicbrainzSimple/Benabar_Benabar.xml");
+        CD cd = chargeurCd.chargerCD();
 
-        resultat.trierArtiste();
+        resultat.trier(new ComparateurArtiste());
 
-        Assert.assertEquals(cd.getNomArtiste(),resultat.getCd(0).getNomArtiste());
-        Assert.assertEquals("Zebda",resultat.getCd(resultat.getNombreCds()-1).getNomArtiste());
 
+        Assert.assertEquals(resultat.getCd(1).getNomArtiste(), cd.getNomArtiste());
+        Assert.assertEquals(resultat.getCd(resultat.getNombreCds()-1).getNomArtiste(), "Zebda");
     }
 
 }
