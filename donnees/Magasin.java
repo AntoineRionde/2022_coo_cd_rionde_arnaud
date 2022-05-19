@@ -66,35 +66,9 @@ public class Magasin{
     }
 
     /**
-     * trie les Cds du magasin par ordre alphabétique en fonction du titre
+     * Methode de trie de la liste des Cds par ordre alphabetique
+     * @param comparateur le comparateur du CD (par titre ou par artiste)
      */
-    public void trierAlbum() {
-        for (int i = 0; i < this.listeCds.size()-1; i++) {
-            for (int j = i + 1; j > 0; j--) {
-                if (this.listeCds.get(j-1).getNomCD().compareTo(this.listeCds.get(j).getNomCD()) > 0) {
-                    CD cd = this.listeCds.get(j);
-                    this.listeCds.set(j, this.listeCds.get(j-1));
-                    this.listeCds.set(j-1, cd);
-                }
-            }
-        }
-    }
-
-    /**
-     * trie les Cds du magasin par ordre croissant en fonction de l'artiste
-     */
-    public void trierArtiste() {
-        for (int i = 0; i < this.listeCds.size()-1; i++) {
-            for (int j = i + 1; j > 0; j--) {
-                if (this.listeCds.get(j-1).getNomArtiste().compareTo(this.listeCds.get(j).getNomArtiste()) > 0) {
-                    CD cd = this.listeCds.get(j);
-                    this.listeCds.set(j, this.listeCds.get(j-1));
-                    this.listeCds.set(j-1, cd);
-                }
-            }
-        }
-    }
-
     public void trier(ComparateurCd comparateur) {
         for (int i = 0; i < this.listeCds.size()-1; i++) {
             for (int j = i + 1; j > 0; j--) {
