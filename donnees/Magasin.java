@@ -80,4 +80,14 @@ public class Magasin{
             }
         }
     }
+
+    public ArrayList chercherArtiste(String artiste) {
+        ArrayList<CD> listeCdsArtiste = new ArrayList<CD>();
+        for (CD listeCd : this.listeCds) {
+            if (listeCd.getNomArtiste().equals(artiste)) {
+                listeCdsArtiste.add(listeCd);
+            }
+        }
+        return listeCdsArtiste;
+    }
 }
