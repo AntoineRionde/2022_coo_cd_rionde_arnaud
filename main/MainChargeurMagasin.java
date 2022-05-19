@@ -1,10 +1,11 @@
 package main;
 
-import java.io.IOException;
-import java.util.Scanner;
-
-import donnees.Magasin;
 import XML.ChargeurMagasin;
+import donnees.ComparateurAlbum;
+import donnees.ComparateurArtiste;
+import donnees.Magasin;
+
+import java.io.IOException;
 
 /**
  * permet de charger un magasin de test
@@ -22,12 +23,12 @@ public class MainChargeurMagasin {
         String repertoire = "musicbrainzSimple";
         ChargeurMagasin charge = new ChargeurMagasin(repertoire);
         Magasin resultat = charge.chargerMagasin();
+        //System.out.println(resultat);
+        System.out.println("----------RESULTAT ALBUM-----------\n\n\n");
+        resultat.trier(new ComparateurAlbum());
         System.out.println(resultat);
-        System.out.println("----------RESULTAT-----------\n\n\n");
-        resultat.trierAlbum();
-        System.out.println(resultat);
-        System.out.println("----------RESULTAT-----------\n\n\n");
-        resultat.trierArtiste();
+        System.out.println("----------RESULTAT ARTISTE-----------\n\n\n");
+        resultat.trier(new ComparateurArtiste());
         System.out.println(resultat);
 
     }
